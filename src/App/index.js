@@ -12,45 +12,43 @@ function App() {
   };
 
   return (
-    <Container className="d-flex align-items-center justify-content-center ">
-      <div className="col-md-5 mt-5">
-        <Jumbotron>
-          <Form className="d-flex flex-column">
-            <div className=" d-flex justify-content-center">
-              <img
-                src={require("../img/react.svg")}
-                width="150"
-                alt="Logo React"
-              />
-            </div>
-            <Form.Control
-              className="mt-4 mb-4"
-              onChange={(e) => setLogin(e.target.value)}
-              type="text"
-              placeholder="Login"
-              value={login}
+    <Container className="d-flex align-items-center justify-content-center">
+      <Jumbotron className="col-md-4 mt-5">
+        <Form className="d-flex flex-column">
+          <div className=" d-flex justify-content-center">
+            <img
+              src={require("../img/react.svg")}
+              width="150"
+              alt="Logo React"
             />
+          </div>
+          <Form.Control
+            className="mt-4 mb-4"
+            onChange={(e) => setLogin(e.target.value)}
+            type="text"
+            placeholder="Login"
+            value={login}
+          />
 
-            <Form.Control
-              className="mb-4"
-              onChange={(e) => setPass(e.target.value)}
-              type="text"
-              placeholder="Senha"
-              value={pass}
-            />
-            {!validate ? null : (
-              <>
-                {!login && <Alert variant="danger">Preencha o Login</Alert>}
-                {!pass && <Alert variant="danger">Preencha a Senha</Alert>}
-              </>
-            )}
+          <Form.Control
+            className="mb-4"
+            onChange={(e) => setPass(e.target.value)}
+            type="text"
+            placeholder="Senha"
+            value={pass}
+          />
+          {!validate ? null : (
+            <>
+              {!login && <Alert variant="danger">Preencha o Login</Alert>}
+              {!pass && <Alert variant="danger">Preencha a Senha</Alert>}
+            </>
+          )}
 
-            <Button variant="primary" onClick={handleSubmit}>
-              Enviar
-            </Button>
-          </Form>
-        </Jumbotron>
-      </div>
+          <Button variant="primary" onClick={handleSubmit}>
+            Enviar
+          </Button>
+        </Form>
+      </Jumbotron>
     </Container>
   );
 }
