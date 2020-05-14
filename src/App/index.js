@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form, Alert } from "react-bootstrap";
 
+
+
+
+
 function App() {
   const [login, setLogin] = useState("");
   const [pass, setPass] = useState("");
@@ -12,42 +16,53 @@ function App() {
   };
 
   return (
-    <div>
-      <Form className="container">
-        <br />
+    <div className="container d-flex align-items-center justify-content-center ">
+      <div className="col-md-5 mt-5">
+        <div className="jumbotron ">
+      <Form className="d-flex flex-column">
+        <div className=" d-flex justify-content-center">
+          <img src={require('../img/react.svg')} width="150" />
+        </div>
         <Form.Control
+          className="mt-4 mb-4"
           onChange={(e) => setLogin(e.target.value)}
           type="text"
           placeholder=" Login"
           value={login}
         />
-        <br />
+        {!validate ? null : (
+        <>
+          {!login && (
+            <div className="alert alert-danger ">
+              Preencha o Login
+            </div>
+          )}
+
+        </>
+      )}
         <Form.Control
+          className="mb-4"
           onChange={(e) => setPass(e.target.value)}
           type="text"
           placeholder=" Senha"
           value={pass}
         />
-        <br />
-        <Button variant="primary" onClick={handleSubmit}>
-          Enviar
-        </Button>
-      </Form>
-
-      {!validate ? null : (
+        {!validate ? null : (
         <>
-          {!login && (
-            <Alert className="container mt-5" variant="danger">
-              Preencha o Login
-            </Alert>
-          )}
           {!pass && (
-            <Alert className="container mt-3" variant="danger">
+            <div className="alert alert-danger " >
               Preencha a Senha
-            </Alert>
+            </div>
           )}
         </>
       )}
+
+        <Button  variant="primary" onClick={handleSubmit}>
+          Enviar
+        </Button>
+      </Form>
+      </div>
+    </div>
     </div>
   );
 }
