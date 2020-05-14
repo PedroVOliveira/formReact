@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Alert } from "react-bootstrap";
+import { Button, Form, Alert, Jumbotron, Container } from "react-bootstrap";
 
 function App() {
   const [login, setLogin] = useState("");
@@ -12,9 +12,9 @@ function App() {
   };
 
   return (
-    <div className="container d-flex align-items-center justify-content-center ">
+    <Container className="d-flex align-items-center justify-content-center ">
       <div className="col-md-5 mt-5">
-        <div className="jumbotron ">
+        <Jumbotron>
           <Form className="d-flex flex-column">
             <div className=" d-flex justify-content-center">
               <img
@@ -27,7 +27,7 @@ function App() {
               className="mt-4 mb-4"
               onChange={(e) => setLogin(e.target.value)}
               type="text"
-              placeholder=" Login"
+              placeholder="Login"
               value={login}
             />
 
@@ -35,17 +35,13 @@ function App() {
               className="mb-4"
               onChange={(e) => setPass(e.target.value)}
               type="text"
-              placeholder=" Senha"
+              placeholder="Senha"
               value={pass}
             />
             {!validate ? null : (
               <>
-                {!login && (
-                  <div className="alert alert-danger ">Preencha o Login</div>
-                )}
-                {!pass && (
-                  <div className="alert alert-danger ">Preencha a Senha</div>
-                )}
+                {!login && <Alert variant="danger">Preencha o Login</Alert>}
+                {!pass && <Alert variant="danger">Preencha a Senha</Alert>}
               </>
             )}
 
@@ -53,9 +49,9 @@ function App() {
               Enviar
             </Button>
           </Form>
-        </div>
+        </Jumbotron>
       </div>
-    </div>
+    </Container>
   );
 }
 
