@@ -30,7 +30,7 @@ function App() {
         />
         <br />
         <Button variant="primary" onClick={handleSubmit}>
-          Enviar!
+          Enviar
         </Button>
       </Form>
 
@@ -42,7 +42,7 @@ function App() {
             </Alert>
           )}
           {!pass && (
-            <Alert className="container" variant="danger">
+            <Alert className="container mt-3" variant="danger">
               Preencha a Senha
             </Alert>
           )}
