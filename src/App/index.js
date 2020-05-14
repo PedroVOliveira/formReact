@@ -6,13 +6,6 @@ function App() {
   const [pass, setPass] = useState("");
   const [validate, setValidade] = useState(false);
 
-  const handleLogin = (e) => {
-    setLogin(e.target.value);
-  };
-
-  const handlePass = (e) => {
-    setPass(e.target.value);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     setValidade(true);
@@ -23,14 +16,14 @@ function App() {
       <Form className="container">
         <br />
         <Form.Control
-          onChange={handleLogin}
+          onChange={(e) => setLogin(e.target.value)}
           type="text"
           placeholder=" Login"
           value={login}
         />
         <br />
         <Form.Control
-          onChange={handlePass}
+          onChange={(e) => setPass(e.target.value)}
           type="text"
           placeholder=" Senha"
           value={pass}
